@@ -1,12 +1,18 @@
 name: Build Linux ARM64
 on:
   push:
+    branches:
+      - master
+      - all-enhancements # Enables tracking on your feature branch
     paths-ignore:
       - '**.md'
   pull_request:
+    branches:
+      - master
+      - all-enhancements # Enables tracking on pull requests targeting your branch
     paths-ignore:
       - '**.md'
-  workflow_dispatch: # Allows you to trigger the build manually from the GitHub UI
+  workflow_dispatch: # Keeps manual triggers active across any branch selection
 
 env:
   BUILD_CONFIG: Release
@@ -16,7 +22,7 @@ env:
 jobs:
   desktop-build:
     name: Desktop (linux-arm64)
-    runs-on: ubuntu-24.04-arm # Native ARM64 Linux runner
+    runs-on: ubuntu-24.04-arm
     steps:
       - uses: actions/checkout@v4
         with:
