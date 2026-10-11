@@ -18,6 +18,7 @@ env:
   BUILD_CONFIG: Release
   QT_VERSION: '6.11.0'
   SCCACHE_GHA_ENABLED: "true"
+  SCCACHE_GHA_FALLBACK_ON_ERROR: "true"
 
 jobs:
   desktop-build:
